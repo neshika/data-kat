@@ -16,17 +16,6 @@ try {
     
 }
 */
-if(!empty($_POST['login'])){
-
-    if( ($_POST['login'] == $login) && ($_POST['pwd'] == $pwd) ){
-        $_SESSION['login'] = $_POST['login'];
-    }
-    
-var_dump($_SESSION['login']);
-}
-
-
-//var_dump($_POST);
 
 // Обращаемся к таблице tbl_name
 
@@ -43,17 +32,27 @@ $array = $statement->fetchAll(PDO::FETCH_ASSOC);
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Документ</title>
+    <title>Radioonda</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
   <body>
 
   <nav class="navbar navbar-light bg-light p-3">
   <div class="container-fluid">
-    <a href="index.php" class="nav-link">Данные</a>
+    <a href="index.php" class="nav-link">Radioonda</a>
     <form class="d-flex">
       
+    <?php if(isset($_SESSION['login'])): ?>
+            <label class="form-label" for="auth"><?php echo $_SESSION['login'];?></label>
+            <a href="logout.php" class="nav-link">Выход</a>
+        </div>
+    <?php else:?>
     <a href="login.php" class="nav-link">Авторизация</a>
+        <?php endif; ?>
+    
     </form>
   </div>
 </nav>
@@ -61,9 +60,9 @@ $array = $statement->fetchAll(PDO::FETCH_ASSOC);
   <div class="container-md">
   <h1>Данные:</h1> 
   
-    <?php if(!isset ($_POST['login'])): ?>
+    <?php if(!isset ($_SESSION['login'])): ?>
         <h3>Для контента нужно авторизоваться</h3>
-    <?php elseif( ($_POST['login'] == $login) && ($_POST['pwd'] == $pwd) ): ?>
+    <?php elseif( ($_SESSION['login'] == $login)): ?>
             <a class="btn btn-outline-primary" href="add.php" role="button">создать</a>
                 <?php if($array):?>
                     <div class="row">

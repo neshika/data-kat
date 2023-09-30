@@ -34,7 +34,6 @@ if(!empty($_POST['login'])){
     if( ($_POST['login'] == $login) && ($_POST['pwd'] == $pwd) ){
         $_SESSION['login'] = $_POST['login'];
     }
-    
-var_dump($_SESSION['login']);
 }
+
 ?>
