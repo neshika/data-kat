@@ -14,7 +14,7 @@ $password = '321478828'; // ваш пароль
 $db = 'test'; // имя вашей базы данных 
 $host = 'localhost'; // локальный хост
 $charset = 'utf8'; // нужная кодировка
-$name_tbl = 'testik'; //имя таблицы
+$name_tbl = 'new'; //имя таблицы
 $login = 'Katkov';
 $pwd = '12';
 

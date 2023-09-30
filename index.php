@@ -2,11 +2,6 @@
 <?php
 include_once "settings.php";
 
-/*if (!isset($_POST['login'])){
-    header('Location:/login.php');
-}
-*/
-/*
 try {
 	$result = $pdo->query("Select 1 FROM $name_tbl LIMIT 1");
 
@@ -15,7 +10,7 @@ try {
     header('Location:/greate_tbl.php');
     
 }
-*/
+
 
 // Обращаемся к таблице tbl_name
 
@@ -40,9 +35,10 @@ $array = $statement->fetchAll(PDO::FETCH_ASSOC);
   </head>
   <body>
 
-  <nav class="navbar navbar-light bg-light p-3">
+  <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-    <a href="index.php" class="nav-link">Radioonda</a>
+    <a href="index.php" class="nav-link">Radioonda<img src="/favicon.png" class = "nav-link" alt="Radioonda"></a>
+    
     <form class="d-flex">
       
     <?php if(isset($_SESSION['login'])): ?>
